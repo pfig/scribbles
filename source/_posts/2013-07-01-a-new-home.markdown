@@ -1,0 +1,48 @@
+---
+layout: post
+title: "A new home"
+date: 2013-07-01 11:40
+comments: false
+categories: meta
+---
+After several weeks of mucking about with new designs, colour schemes, and
+whatnot, I decided I'd had enough, and was going to give Octopress a try, and
+stop this new site project if I didn't like it. I liked it.
+
+The motivation to come up with a new site came from two things:
+
+* [Matt Gemmel's post on designing for readers][0]
+* Spammers on my Movable Type installation being a royal pain in the arse, and
+MT itself being a pain to update, customise, write code for, etc.
+
+<!-- more -->
+I set out to have a completely static site / blog, with my thinking very much
+along [these lines][1] and the ease to publish locally, using any editor, very
+much appealing to my laziness. However, I settled for the [original thesis][2]
+which enables me to marry my fondness for simplicity with [Matt's good advice][0].
+
+I didn't want to use any server-side code, or even code I wasn't comfortable
+with - ideally, any code at all, really. However, I was really fed up with
+Foundation, Bootstrap, and the likes, as I'm not a frontend guy and had
+no desire to become one. After a few aborted attempts at writing my own, I
+decided my time would be better spent on other things, and went on to try
+Octopress. I had used Jekyll in the past, and even contributed a couple of
+patches to it, so I figured Octopress wouldn't kill me.
+
+What I found out was that as well as not killing me, the default theme was
+almost what I had in mind - I wouldn't make it as fancy as I find it, but I
+didn't feel compelled to rip it apart. After changing the fonts and slightly
+tweaking the default configuration to my liking, I decided that was it, and
+deployed.
+
+I haven't written this much for public consumption in a **long** time, so bear
+with me, as it feels like a fresh start - which is why I didn't import my posts
+from the old blog, and gave this one a different URL. In any case, the old blog
+will [linger around][3]. Your regular scheduling will resume shortly.
+
+Hopefully.
+
+[0]: http://mattgemmell.com/2013/05/22/designing-blogs-for-readers/ "Designing blogs for readers"
+[1]: http://slopjong.de/words.txt "Words really are magic"
+[2]: http://justinjackson.ca/words.html "Words are magic"
+[3]: http://pedrofigueiredo.org/blog "SUPPER::new"
