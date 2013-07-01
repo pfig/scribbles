@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://pedrofigueiredo.org
-title: pedrofigueiredo.org
-subtitle: Opinionated opinions
+title: Curioosity
+subtitle:
 author: Pedro Figueiredo
 simple_search: http://google.com/search
 description:
@@ -54,8 +54,8 @@ default_asides: [asides/recent_posts.html, asides/github.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
-blog_index_asides: []
-post_asides: []
+#blog_index_asides: []
+post_asides: [custom/asides/about.html]
 # page_asides:
 
 # ----------------------- #
@@ -64,7 +64,7 @@ post_asides: []
 
 # Github repositories
 github_user: pfig
-github_repo_count: 0
+github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
@@ -94,7 +94,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-42126475-1
 
 # Facebook Like
 facebook_like: false
