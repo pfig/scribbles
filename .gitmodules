@@ -1,0 +1,3 @@
+[submodule ".themes/pageturner"]
+	path = .themes/pageturner
+	url = https://github.com/elisehein/Pageturner.git
