@@ -1,17 +1,29 @@
 <!-- START OF _includes/article.html -->
 <article>
-	<header>
-		<h1><a href="{{ root_url }}{{ page.url }}">{{ page.title }}</a></h1>
-		<time>{{ page.date | date: "%d %B %Y" }}</time>
-	</header>
-		<div class="content">
-			{{ content }}
-		</div>
-	<footer>
-		{% include post/categories.html %}
-	
-	{% if page.source.url %}via <a href="{{ page.source.url }}">{{ page.source.title }}</a>{% endif %}
-	</footer>
-	
+  {% unless page.no_header %}
+    <header>
+      <h1><a href="{% if page.external-url %}{{ page.external-url }}{% else %}{{ root_url }}{{ page.url }}{% endif%}">{% if site.titlecase %}{{ page.title | titlecase}}{% else %}{{ page.title }}{% endif %}</a></h1>
+      {% unless page.meta == false %}
+        {% if page.external-url %}<i class="icon-external-link"></i>{% endif %}
+        <time>{{ page.date | date: "%d %B %Y" }}</time>
+      {% endunless %}
+    </header>
+  {% endunless %}
+  {% if index %}
+    <div class="content">{{ content | excerpt }}</div>
+    {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
+    {% if excerpted == 'true' %}
+      <footer>
+        <a rel="full-article" href="{{ root_url }}{{ page.url }}">{{ site.excerpt_link }}</a>
+      </footer>
+    {% endif %}
+  {% else %}
+    <div class="content">{{ content }}</div>
+    {% if page.source.url %}
+      <footer>
+        via <a href="{{ page.source.url }}">{{ page.source.title }}</a>
+      </footer>
+    {% endif %}
+  {% endif %}
 </article>
 <!-- END OF _includes/article.html -->
