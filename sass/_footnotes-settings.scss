@@ -1,0 +1,9 @@
+@import "bourbon/bourbon";
+@import "typography";
+/*
+ * Change these to customise the footnotes popovers.
+ */
+$footnotesWidth: 400px;
+$footnotesBackgroundColour: #fcf4dd;
+$footnotesTextColour: black;
+$footnotesFont: 'museo-sans';
