@@ -3,9 +3,9 @@ layout: default
 ---
 <!-- START OF index.html -->
 {% assign index = true %}
-  {% for page in paginator.posts %}
-    {% assign content = page.content %}
-    {% include article.html %}
-  {% endfor %}
+{% for page in paginator.posts %}
+  {% assign content = page.content %}
+  {% include article.html %}
+{% endfor %}
 
 <!-- END OF index.html -->
