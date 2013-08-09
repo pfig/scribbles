@@ -95,7 +95,7 @@ end
 #########
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
-desc "Begin a new post in #{source_dir}/#{posts_dir}"
+desc "Begin a new post in #{source_dir}/#{posts_dir}."
 task :new_post, :title do |t, args|
   if args.title
     title = args.title
@@ -193,6 +193,32 @@ task :demote, :filename_partial do |t, args|
   FileUtils.mkdir_p "#{move_dir}"
   Dir.glob("#{source_dir}/#{posts_dir}/*#{args.filename_partial}*.#{new_post_ext}") do |post|
     FileUtils.mv post, move_dir
+  end
+end
+
+# usage rake ls\[posts|drafts\]
+desc "Lists the posts or drafts in #{posts_dir} or #{drafts_dir}."
+task :ls, :files do |t, args|
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  what = []
+  posts = "#{source_dir}/#{posts_dir}"
+  drafts = "#{source_dir}/#{drafts_dir}"
+  case args.files
+    when "posts"
+      what.push(posts)
+    when "drafts"
+      what.push(drafts)
+    else
+      what.push(posts, drafts)
+  end
+  what.each do |directory|
+    if File.directory?(directory)
+      res = Dir.glob("#{directory}/*.#{new_post_ext}")
+      puts directory
+      puts "=============="
+      puts res
+      puts
+    end
   end
 end
 
