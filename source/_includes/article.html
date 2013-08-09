@@ -2,10 +2,10 @@
 <article>
   {% unless page.no_header %}
     <header>
-      <h1><a href="{% if page.external-url %}{{ page.external-url }}{% else %}{{ root_url }}{{ page.url }}{% endif%}">{% if site.titlecase %}{{ page.title | titlecase}}{% else %}{{ page.title }}{% endif %}</a></h1>
+      <h1><a href="{{ root_url }}{{ page.url }}">{% if site.titlecase %}{{ page.title | titlecase}}{% else %}{{ page.title }}{% endif %}</a></h1>
       {% unless page.meta == false %}
-        {% if page.external-url %}<i class="icon-external-link"></i>{% endif %}
         <time>{{ page.date | date: "%d %B %Y" }}</time>
+        {% if page.external-url %}<a href="{{ page.external-url }}"><i class="foundicon-compass"></i></a>{% endif %}
       {% endunless %}
     </header>
   {% endunless %}
