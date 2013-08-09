@@ -214,9 +214,12 @@ task :ls, :files do |t, args|
   what.each do |directory|
     if File.directory?(directory)
       res = Dir.glob("#{directory}/*.#{new_post_ext}")
-      puts directory
-      puts "=============="
-      puts res
+      # works as long as posts/drafts directory name starts with '_' :)
+      puts directory.match(/_\w.*/)[0].slice(1..-1).upcase
+      puts "======"
+      res.each do |r|
+        puts r.match(/[0-9]\d.*/)
+      end
       puts
     end
   end
