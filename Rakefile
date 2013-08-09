@@ -21,7 +21,8 @@ source_dir      = "source"    # source file directory
 blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
-posts_dir       = "_posts"    # directory for blog files
+posts_dir       = "_posts"    # directory for posts files
+drafts_dir      = "_drafts"   # directory for drafts files
 themes_dir      = ".themes"   # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
@@ -114,6 +115,86 @@ task :new_post, :title do |t, args|
     post.puts "---"
   end
 end
+
+# usage rake isolate[my-post]
+desc "Move all other posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much more quickly."
+task :isolate, :filename do |t, args|
+  stash_dir = "#{source_dir}/#{stash_dir}"
+  FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
+  Dir.glob("#{source_dir}/#{posts_dir}/*.*") do |post|
+    FileUtils.mv post, stash_dir unless post.include?(args.filename)
+  end
+end
+
+desc "Move all stashed posts back into the posts directory, ready for site generation."
+task :integrate do
+  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
+end
+
+##########
+# Drafts #
+##########
+
+## http://www.i-m-code.com/blog/blog/2012/01/25/target-any-deployment-environment-in-octopress-with-ease/
+
+# usage rake new_draft\[my-new-draft\] or rake new_draft\['my new draft\] or rake new_draft (defaults to "new-draft")
+desc "Begin a new draft post in #{source_dir}/#{drafts_dir}."
+task :new_draft, :title do |t, args|
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  mkdir_p "#{source_dir}/#{drafts_dir}"
+  args.with_defaults(:title => 'new-draft-post')
+  title = args.title
+  filename = "#{source_dir}/#{drafts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+  puts "Creating new draft: #{filename}"
+  open(filename, 'w') do |draft|
+    draft.puts "---"
+    draft.puts "layout: post"
+    draft.puts "title: \"#{title.gsub(/&/, '&amp;')}\""
+    draft.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    draft.puts "comments: false"
+    draft.puts "categories: "
+    draft.puts "---"
+  end
+end
+
+# usage rake promote\[my-draft\] and reset the date to today
+desc "Move draft from #{drafts_dir} to #{posts_dir}."
+task :promote, :filename_partial do |t, args|
+  raise "### You must specify file name partial." unless args[:filename_partial]
+  move_dir = "#{source_dir}/#{posts_dir}"
+  new_time = Time.now
+  new_date = new_time.strftime('%Y-%m-%d %H:%M')
+  new_file_date = new_time.strftime('%Y-%m-%d')
+  FileUtils.mkdir_p "#{move_dir}"
+  Dir.glob("#{source_dir}/#{drafts_dir}/*#{args.filename_partial}*.#{new_post_ext}") do |draft|
+    new_file_name_suffix = draft.match(/-[a-z]\w.*/)
+    new_file_name = "#{move_dir}/#{new_file_date}#{new_file_name_suffix}"
+    FileUtils.mv draft, "#{new_file_name}"
+
+    # read the file and update the date: header
+    text = File.read(new_file_name)
+    puts = text.gsub(/(date:\s\w.*)/, "date: #{new_date}")
+    File.open(new_file_name, "w") { |file| file << puts }
+  end
+end
+
+# usage rake demote\[my-draft\]
+desc "Move post from #{posts_dir} to #{drafts_dir}."
+task :demote, :filename_partial do |t, args|
+  raise "### You must specify file name partial." unless args[:filename_partial]
+  move_dir = "#{source_dir}/#{drafts_dir}"
+  FileUtils.mkdir_p "#{move_dir}"
+  Dir.glob("#{source_dir}/#{posts_dir}/*#{args.filename_partial}*.#{new_post_ext}") do |post|
+    FileUtils.mv post, move_dir
+  end
+end
+
+#########
+# Pages #
+#########
 
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")
 desc "Create a new page in #{source_dir}/(filename)/index.#{new_page_ext}"
