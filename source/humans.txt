@@ -1,0 +1,17 @@
+/* TEAM */
+Code monkey: Pedro Figueiredo
+Twitter: @pfig
+From: London, UK
+
+
+/* THANKS */
+Theme author: Elise Hein
+Link: https://github.com/elisehein/Pageturner
+From: Manchester, UK
+
+/* SITE */
+Language: English
+Doctype: HTML5
+Software: Sublime Text, Sass, Compass, Bourbon, Octopress, Git
+Standards: HTML5, CSS3
+Components: Modernizr, jQuery, Foundation Icons
