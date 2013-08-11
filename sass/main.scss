@@ -224,7 +224,7 @@ pre {
     }
   }
 
-code {
+code, .gist-file {
   margin: $code-margin 0;
   padding: $code-padding;
   font-family: $code-font-family;
