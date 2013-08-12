@@ -270,7 +270,13 @@ end
 
 desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache"
 task :clean do
-  rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", "source/stylesheets/main.css", "source/stylesheets/general_foundicons.css", "source/stylesheets/general_foundicons_ie7.css", "source/stylesheets/prettify-hemisu.css", "source/stylesheets/footnotes.css"]
+  rm_rf [
+    ".pygments-cache/**", ".gist-cache/**", ".sass-cache/**",
+    "source/stylesheets/main.css",
+    "source/stylesheets/general_foundicons.css", "source/stylesheets/general_foundicons_ie7.css",
+    "source/stylesheets/social_foundicons.css", "source/stylesheets/social_foundicons_ie7.css",
+    "source/stylesheets/prettify-hemisu.css", "source/stylesheets/footnotes.css"
+  ]
 end
 
 desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
