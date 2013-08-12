@@ -45,6 +45,12 @@ layout: nil
       ]]>
       <![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]>
     </content>
+    <summary>
+      {% capture excerpted %}{{ post.content | has_excerpt }}{% endcapture %}
+      {% if excerpted == 'true' %}
+        <![CDATA[{{ post.content | excerpt | cdata_escape }}]]>
+      {% endif %}
+    </summary>
   </entry>
   {% endfor %}
 </feed>
