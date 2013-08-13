@@ -1,7 +1,14 @@
-<ul>
-  <li><a href="http://89clouds.com/">Consultancy</a></li>
-  <li><a href="http://toomanylights.com/">Photos</a></li>
-  <li><a href="http://everythingdies.bandcamp.com/">Music</a></li>
-  <li><a href="{{ root_url }}/about.html">About</a></li>
-  <li><a href="{{ root_url }}/scribbles/archives">Archives</a></li>
-</ul>
+<nav>
+  <ul>
+    <li><a href="{{ root_url }}/about.html">About</a></li>
+    <li><a href="http://89clouds.com/">Consultancy</a></li>
+    <li><a href="http://everythingdies.bandcamp.com/">Music</a></li>
+    <li><a href="http://toomanylights.com/">Photos</a></li>
+    <li><a href="{{ root_url }}/scribbles/archives">Archives</a></li>
+    <li>
+      <form method="get" action="{{ root_url }}/search.html" id="search">
+        <input name="query" type="text" placeholder="Site search">
+      </form>
+    </li>
+  </ul>
+</nav>

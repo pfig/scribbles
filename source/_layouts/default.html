@@ -7,9 +7,7 @@
       <header>
         {% include header.html %}
 
-        <div class="navi">
-          {% include custom/navigation.html %}
-        </div> <!-- // .navi -->
+        {% include custom/navigation.html %}
       </header>
 
         {{ content | expand_urls: root_url }}
