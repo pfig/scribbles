@@ -68,6 +68,9 @@ github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
+# Tapirgo token
+tapir_token: 51f2a37184516902000000b9
+
 # Twitter
 twitter_user: pfig
 twitter_tweet_button: false
