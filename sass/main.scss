@@ -259,8 +259,6 @@ code, .gist-file {
 
 /* Inline code */
 p > code {
-  border: 1px solid $light-gray;
-  border-radius: 4px;
   background-color: $code-background-color;
   white-space: nowrap;
   }
