@@ -5,7 +5,12 @@
       <h1><a href="{{ root_url }}{{ page.url }}">{% if site.titlecase %}{{ page.title | titlecase}}{% else %}{{ page.title }}{% endif %}</a></h1>
       {% unless page.meta == false %}
         <time>{{ page.date | date: "%d %B %Y" }}</time>
-        {% if page.external-url %}<a href="{{ page.external-url }}"><i class="foundicon-compass"></i></a>{% endif %}
+        {% if page.external-url %}
+          <a href="{{ page.external-url }}" class="icon-alone">
+            <span aria-hidden="true" data-icon="&#x25e3;"></span>
+            <span class="visuallyhidden">External link</span>
+          </a>
+        {% endif %}
       {% endunless %}
     </header>
   {% endunless %}
