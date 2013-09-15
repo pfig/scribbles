@@ -1,0 +1,45 @@
+$fontName: 'Scribbles';
+$fontFileName: '../font/Scribbles';
+
+@font-face {
+  font: {
+    family: $fontName;
+    weight: normal;
+    style: normal;
+  }
+  src:url('#{$fontFileName}.eot');
+  src:url('#{$fontFileName}.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontFileName}.woff') format('woff'),
+    url('#{$fontFileName}.ttf') format('truetype'),
+    url('#{$fontFileName}.svg##{$fontName}') format('svg');
+}
+
+[data-icon]:before {
+  font: {
+    family: $fontName;
+    weight: normal;
+    variant: normal;
+  }
+  content: attr(data-icon);
+  speak: none;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-alone {
+  display: inline-block;
+}
+
+// From H5BP - http://h5bp.com/
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
