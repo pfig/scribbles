@@ -29,9 +29,9 @@ site working better and loading quicker than before. Back pats all around!
 
 The relevant SCSS and HMTL markup for this is, in a nutshell:
 
-{% gist 6579350 %}
+<script src="https://gist.github.com/pfig/6579409.js"></script>
 
-{% gist 6579358 %}
+<script src="https://gist.github.com/pfig/6579358.js"></script>
 
 P.S. While doing this change, I learned about [IcoMoon][3], which is perhaps
 the ultimate resource for everything icon font-y, and provides [a tool to build
