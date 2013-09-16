@@ -40,7 +40,7 @@ need the 400 icons that come with your chosen icon font - my current font now
 contains only 3 icons, and weighs in at around 4k, a fraction of Font Awesome's
 or Foundation's icon sets.
 
-[0]: http://scribbles.dev/scribbles/2013/09/02/the-link-blog/ "The link blog"
+[0]: http://pedrofigueiredo.org/scribbles/2013/09/02/the-link-blog/ "The link blog"
 [1]: https://en.wikipedia.org/wiki/Linklog "Wikipedia entry for Linklog"
 [2]: http://css-tricks.com/html-for-icon-font-usage/ "HTML for font icon usage"
 [3]: http://icomoon.io/ "IcoMoon"

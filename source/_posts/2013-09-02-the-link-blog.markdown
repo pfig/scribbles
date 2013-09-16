@@ -64,4 +64,4 @@ conditional. This is one of the reasons why I think [Octopress][4] (or
 [4]: http://octopress.org/ "Octopress homepage"
 [5]: http://jekyllrb.com/ "Jekyll homepage"
 [6]: https://twitter.com/imathis "Brandon Mathis's Twitter"
-[7]: http://pedrofigueiredo.org/scribbles/2013/09/03/font-icons-done-properly/ "Font icons done properly"
+[7]: http://pedrofigueiredo.org/scribbles/2013/09/16/font-icons-done-properly/ "Font icons done properly"
