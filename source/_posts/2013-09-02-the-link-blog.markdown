@@ -9,6 +9,9 @@ external-url: http://daringfireball.net/
 As everyone knows, [link blogs][1] were invented by Al Gore, and made popular
 by [John Gruber][0].
 <!-- more -->
+**Update**: I revised this post after some advice from [Brandon Mathis on
+Twitter][6], on how to use font icons correctly; please check [my summary][7].
+
 I **really, really** wanted to have the same functionality here, but the
 Octopress gods were against me: after a lot of pain to merge 2.1 (the branch
 with the linklog feature baked in) with my installation, things were broken in
@@ -17,8 +20,8 @@ when I tried to upgrade to 3.0 (which hasn't been released yet, so the usual
 "provided as is" guarantee applies in its full force).
 
 As a result, I curled up in a corner, and after a bit of wailing and gnashing
-of teeth figured out how to implement it myself. The feature can be described as
-follows:
+of teeth figured out how to implement it myself. The feature can be described
+as follows:
 
 * The title of the entry links to the page you're commenting on, as opposed to
 that entry's permalink.
@@ -30,7 +33,10 @@ linklog.
 
 I settled on
 
-<center><span style="font-size: 64px;"><i class="foundicon-compass"></i></span></center>
+<center><span style="font-size: 64px;">
+  <span aria-hidden="true" data-icon="&#x25e3;"></span>
+  <span class="visuallyhidden">External link</span>
+</span></center>
 
 for the icon (from the
 [excellent collection of font icons provided by Foundation][2]), but I decided
@@ -57,3 +63,5 @@ conditional. This is one of the reasons why I think [Octopress][4] (or
 [3]: http://wiki.shopify.com/Liquid "Liquid docs"
 [4]: http://octopress.org/ "Octopress homepage"
 [5]: http://jekyllrb.com/ "Jekyll homepage"
+[6]: https://twitter.com/imathis "Brandon Mathis's Twitter"
+[7]: http://pedrofigueiredo.org/scribbles/2013/09/03/font-icons-done-properly/ "Font icons done properly"
